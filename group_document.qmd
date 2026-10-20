@@ -13,3 +13,10 @@ editor: visual
 ### Mathilde Eugénie Madeleine Picard - s261782
 
 ### María José Zamora Gómez - s261697
+
+shdbakjsdjkanda
+
+```{r}
+var <- 15
+var
+```
