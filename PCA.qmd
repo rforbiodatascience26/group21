@@ -1,0 +1,30 @@
+---
+title: "Group 21"
+author:
+  - "Tóki Janusarson Strøm (student id: s264038)"
+  - "Bertram Bremerskov Broe (student id: s206178)"
+  - "Emil Bennetzen (student id: s264037)"
+  - "Mathilde Eugénie Madeleine Picard (student id: s261782)"
+  - "María José Zamora Gómez (student id: s261697)"
+format:
+  html:
+    embed-resources: true
+    include-in-header:
+      - text: |
+          <style type="text/css">
+          main.content p,
+          main.content li,
+          #quarto-document-content p,
+          #quarto-document-content li {
+            text-align: justify;
+            text-justify: inter-word;
+          }
+          </style>
+editor: visual
+---
+
+# PCA
+
+## Background
+
+Throughout this report, we will be carrying Principal Component Analysis (PCA) on the 'biopsy' dataset, with the objective of observing how much of the variance of the dara is contained in the main principal components. The samples in this dataset are labeled as 'benignant' and 'malignant', and carrying out this analysis will allow us to observe how different characteristics may be key factors when diagnosing patients.
