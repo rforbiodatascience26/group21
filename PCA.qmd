@@ -25,6 +25,7 @@ editor: visual
 
 ## Introduction
 
+## Introduction
 Throughout this report, we will be carrying Principal Component Analysis (PCA) on the 'biopsy' dataset, with the objective of observing how much of the variance of the dara is contained in the main principal components. The samples in this dataset are labeled as 'benignant' and 'malignant', and carrying out this analysis will allow us to observe how different characteristics may be key factors when diagnosing patients.
 
 ## Import data and libraries
