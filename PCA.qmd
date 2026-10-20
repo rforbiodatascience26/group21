@@ -23,8 +23,109 @@ format:
 editor: visual
 ---
 
-# PCA
 
-## Background
-
+## Introduction
 Throughout this report, we will be carrying Principal Component Analysis (PCA) on the 'biopsy' dataset, with the objective of observing how much of the variance of the dara is contained in the main principal components. The samples in this dataset are labeled as 'benignant' and 'malignant', and carrying out this analysis will allow us to observe how different characteristics may be key factors when diagnosing patients.
+
+
+## Import data and libraries
+
+Importation of the useful libraries
+
+```{r}
+library("tidyverse")
+library("ggplot2")
+library("broom")
+library("cowplot")
+```
+
+Load the biopsy data
+
+```{r}
+biopsy <- read_csv("https://wilkelab.org/classes/SDS348/data_sets/biopsy.csv")
+```
+
+## Look at the data in PC coordinates
+
+Remove all non-numeric columns from the data and scale the data values to unit variance before PCA
+
+```{r}
+pca_fit <- biopsy |> 
+  select(where(is.numeric)) |>  
+  prcomp(scale = TRUE)
+```
+
+Plot the PC coordinates
+
+```{r}
+pca_fit |> 
+  augment(biopsy)  |> 
+  ggplot(aes(.fittedPC1, .fittedPC2, color = outcome)) + 
+  geom_point(size = 1.5) +
+  scale_color_manual(
+    values = c(malignant = "#D55E00", benign = "#0072B2")
+  ) +
+  theme_half_open(12) + background_grid()
+```
+
+Extract rotation matrix
+
+```{r}
+pca_fit %>%
+  tidy(matrix = "rotation")
+```
+
+Define arrow style for plotting
+
+```{r}
+arrow_style <- arrow(angle = 20, 
+                     ends = "first", 
+                     type = "closed", 
+                     length = grid::unit(8, "pt"))
+```
+
+Plot the rotation matrix
+
+```{r}
+pca_fit |> 
+  tidy(matrix = "rotation") |> 
+  pivot_wider(names_from = "PC", names_prefix = "PC", values_from = "value") |> 
+  ggplot(aes(PC1, PC2)) +
+  geom_segment(xend = 0, yend = 0, arrow = arrow_style) +
+  geom_text(
+    aes(label = column),
+    hjust = 1, nudge_x = -0.02, 
+    color = "#904C2F"
+  ) +
+  xlim(-1.25, .5) + ylim(-.5, 1) +
+  coord_fixed() + # fix aspect ratio to 1:1
+  theme_minimal_grid(12)
+```
+
+## Look at the variance explained by each PC
+
+Extract the variance informations
+
+```{r}
+pca_fit |> 
+  tidy(matrix = "eigenvalues")
+```
+
+Plot the vriance explained by each PC
+
+```{r}
+pca_fit |> 
+  tidy(matrix = "eigenvalues") |> 
+  ggplot(aes(PC, percent)) +
+  geom_col(fill = "#56B4E9", alpha = 0.8) +
+  scale_x_continuous(breaks = 1:9) +
+  scale_y_continuous(
+    labels = scales::percent_format(),
+    expand = expansion(mult = c(0, 0.01))
+  ) +
+  theme_minimal_hgrid(12)
+```
+
+We can notice that the first component captures 65% of the variation in the data, the second one is less than 10% of the variation.
+
+Consequently, the major part of the variation is captured by the first component.
