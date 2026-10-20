@@ -12,6 +12,13 @@ editor: visual
 
 ### Mathilde Eugénie Madeleine Picard - s261782
 
+New feature
+
+```{r}
+moy = mean(16)
+moy
+```
+
 jdjfbhfb
 
 ```{r}
