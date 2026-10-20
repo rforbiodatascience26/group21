@@ -12,6 +12,12 @@ editor: visual
 
 ### Mathilde Eugénie Madeleine Picard - s261782
 
+jdjfbhfb
+
+```{r}
+library("ggplot2")
+```
+
 ### María José Zamora Gómez - s261697
 
 shdbakjsdjkanda
