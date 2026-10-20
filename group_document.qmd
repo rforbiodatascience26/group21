@@ -1,0 +1,15 @@
+---
+title: "group_document"
+format: html
+editor: visual
+---
+
+### Tóki Janusarson Strøm - s264038
+
+### Bertram Bremerskov Broe - s206178
+
+### Emil Bennetzen - s264037
+
+### Mathilde Eugénie Madeleine Picard - s261782
+
+### María José Zamora Gómez - s261697
