@@ -37,7 +37,7 @@ Plot the PC coordinates
 
 ```{r}
 pca_fit |> 
-  augment(biopsy)  |> 
+  augment(biopsy) |> 
   ggplot(aes(.fittedPC1, .fittedPC2, color = outcome)) + 
   geom_point(size = 1.5) +
   scale_color_manual(
