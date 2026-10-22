@@ -1,5 +1,5 @@
 ---
-title: "Group 21"
+title: "Lab 7 Assignment: Group 21"
 author:
   - "Tóki Janusarson Strøm (student id: s264038)"
   - "Bertram Bremerskov Broe (student id: s206178)"
