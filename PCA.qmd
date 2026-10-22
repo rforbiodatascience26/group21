@@ -25,7 +25,7 @@ editor: visual
 
 ## Introduction
 
-Throughout this report, we will be carrying Principal Component Analysis (PCA) on the 'biopsy' dataset, with the objective of observing how much of the variance of the data is contained in the main principal components. It is a breast cancer dataset from the University of Wisconsin Hospitals which contains 699 patients biopsies of breast tumors. The samples in this dataset are labeled as 'benignant' and 'malignant', and carrying out this analysis will allow us to observe how different characteristics may be key factors when diagnosing breast cancer.
+Throughout this report, we will be carrying Principal Component Analysis (PCA) on the 'biopsy' dataset, with the objective of observing how much of the variance of the data is contained in the main principal components. It is a breast cancer dataset from the University of Wisconsin Hospitals which contains 699 patients biopsies of breast tumors. The samples in this dataset are labeled as 'benign' and 'malignant', and carrying out this analysis will allow us to observe how different characteristics may be key factors when diagnosing breast cancer.
 
 ## Import data and libraries
 
@@ -46,7 +46,7 @@ biopsy <- read_csv("https://wilkelab.org/classes/SDS348/data_sets/biopsy.csv")
 biopsy
 ```
 
-Look at the dataset : 683 patients, variables scored from 1 to 10 to determine the final outcome: is the tumor benign or malignant?
+This dataset has 683 samples belonging to 683 patients with different variables scored from 1 to 10. Finally each sample is labeled as a benign or malignant tumor.
 
 ## Look at the data in PC coordinates
 
