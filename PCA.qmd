@@ -66,7 +66,7 @@ pca_fit |>
   ggplot(aes(.fittedPC1, .fittedPC2, color = outcome)) + 
   geom_point(size = 1.5) +
   scale_color_manual(
-    values = c(malignant = "#D55E00", benign = "#0072B2")
+    values = c(malignant = "darkred", benign = "olivedrab3")
   ) +
   theme_half_open(12) + background_grid()
 ```
@@ -98,7 +98,7 @@ pca_fit |>
   geom_text(
     aes(label = column),
     hjust = 1, nudge_x = -0.02, 
-    color = "#904C2F"
+    color = "cadetblue4"
   ) +
   xlim(-1.25, .5) + ylim(-.5, 1) +
   coord_fixed() + # fix aspect ratio to 1:1
@@ -120,7 +120,7 @@ Plot the variance explained by each PC
 pca_fit |> 
   tidy(matrix = "eigenvalues") |> 
   ggplot(aes(PC, percent)) +
-  geom_col(fill = "#56B4E9", alpha = 0.8) +
+  geom_col(fill = "cadetblue4", alpha = 0.8) +
   scale_x_continuous(breaks = 1:9) +
   scale_y_continuous(
     labels = scales::percent_format(),
@@ -133,10 +133,10 @@ pca_fit |>
 
 Once the samples are plotted and colored according to their label, there is a clear separation between malignant and benign tumors: benign samples are mostly clustered at positive values for PC1, and close to zero on PC2. On the other hand, malignant tumors are more spread in the rest of the plot, with negative values for PC1, and a wide range of values for PC2. For instance, this could be telling us that, while most benign samples behave and look similarly, malignant biopsy samples have more of an heterogeneous character to them. Also, we are able to observe a zone where both types of samples coexist and overlap, meaning that this small number of samples cannot be unambiguously classified based only on the first two principal components.
 
-As for the rotation matrix, it is clear that all the variables contribute to the first Principal Component in the same direction and with similar magnitudes, and given the nature of the variables (clump thickness, uniformity of cell size and shape, etc.), we may be able to interpret PC1 as a measure of overall cellular abnormality, since those samples with higher values of these features are located towards negative PC1 values (which happens to be where the malignant samples are found). On the other side, PC2 is dominated principally by mitoses, with very little contribution from the rest of the variables, which may suggest that mitosis vary somewhat independently from the other variables.
+As for the rotation matrix, it is clear that all the variables contribute to the first Principal Component in the same direction and with similar magnitudes, and given the nature of the variables (clump thickness, uniformity of cell size and shape, etc.), we may be able to interpret PC1 as a measure of overall cellular abnormality, since those samples with higher values of these features are located towards negative PC1 values (which happens to be where the malignant samples are found). On the other side, PC2 is dominated principally by mitoses, with very little contribution from the rest of the variables, which may suggest that mitoses vary somewhat independently from the other variables.
 
 Finally, we can notice that the first component captures 65% of the variation in the data, the second one is less than 10% of the variation; consequently, the major part of the variation is captured by the first component. In conclusion, PC1 and PC2 together capture around \~75% of the variation in the dataset, but most of the relevant information to separate benign from malignant samples is contained in PC1 alone.
 
 ## References:
 
--   Wilke, C. O. (2020). *PCA tidyverse style*. Claus O. Wilke. Retrieved from: <https://clauswilke.com/blog/2020/09/07/pca-tidyverse-style/>
+- Wilke, C. O. (2020). *PCA tidyverse style*. Claus O. Wilke. Retrieved from: <https://clauswilke.com/blog/2020/09/07/pca-tidyverse-style/>
