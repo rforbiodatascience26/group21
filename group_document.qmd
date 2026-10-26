@@ -10,6 +10,12 @@ editor: visual
 
 ### Emil Bennetzen - s264037
 
+Hej
+
+```{r}
+message = "Sker der"
+```
+
 ### Mathilde Eugénie Madeleine Picard - s261782
 
 New feature
