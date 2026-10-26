@@ -13,7 +13,14 @@ editor: visual
 Hej
 
 ```{r}
-message = "Sker der"
+message <- "Sker der"
+```
+
+### new feature
+
+```{r}
+message <- paste(message, "???")
+message
 ```
 
 ### Mathilde Eugénie Madeleine Picard - s261782
